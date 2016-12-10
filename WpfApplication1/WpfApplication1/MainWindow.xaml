@@ -6,7 +6,30 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <!--<Grid Visibility="Collapsed">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Hello World"  Grid.Column="1" Grid.Row="2" Background="#FF76622B" />
+        <Label Content="Hello World"  Grid.Column="2" Grid.Row="2" Background="#FF76622B" />
+        <Label Content="Hello World"  Grid.Column="1" Grid.Row="1" Background="#FF76622B" />
+        <Label Content="Hello World"  Grid.Column="2" Grid.Row="1" Background="#FF76622B" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="Hello World"  Grid.Column="1" Background="#FF76622B" Margin="0,0,32,10" />
+        <Label Content="Hello World"  Grid.Column="2" Background="#FF76622B" />
+        <Label Content="Hello World" Background="#FF76622B" />
+    </Grid>-->
+    <DockPanel LastChildFill="True">
+        <Label Content="Hello World - 5" Background="#FF3C2B30" DockPanel.Dock="Right" />
+        <Label Content="Hello World - 1" Background="#FF76622B" DockPanel.Dock="Left" />
+        <Label Content="Hello World - 2" Background="#FF76623F" DockPanel.Dock="Left" />
+        <Label Content="Hello World - 3" Background="#FF00622B" DockPanel.Dock="Top" />
+        <Label Content="Hello World - 4" Background="#FF00772B" DockPanel.Dock="Bottom" />
+    </DockPanel>
 </Window>
