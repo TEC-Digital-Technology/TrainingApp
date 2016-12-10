@@ -46,6 +46,18 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TEC.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa430e8d94144bb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\TEC_Core_Library.1.2.37\lib\net46\TEC.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TEC.Core.Portable, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa430e8d94144bb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\TEC_Core_Library.1.2.37\lib\net46\TEC.Core.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TEC.Core.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa430e8d94144bb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\TEC_Core_Wpf_Library.1.1.19\lib\net46\TEC.Core.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -55,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\OperationAndStringConverter.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="TwoNumberInfo.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +101,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

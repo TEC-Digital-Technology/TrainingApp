@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:converter="clr-namespace:WpfApplication1.Converters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        x:Name="Window_MainWindow"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_MainWindow_Loaded">
     <!--<Grid Visibility="Collapsed">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
@@ -26,10 +28,24 @@
         <Label Content="Hello World" Background="#FF76622B" />
     </Grid>-->
     <DockPanel LastChildFill="True">
-        <Label Content="Hello World - 5" Background="#FF3C2B30" DockPanel.Dock="Right" />
-        <Label Content="Hello World - 1" Background="#FF76622B" DockPanel.Dock="Left" />
+        <DockPanel.Resources>
+            <converter:OperationAndStringConverter x:Key="OperationAndStringConverter" ></converter:OperationAndStringConverter>
+        </DockPanel.Resources>
+        <Label Content="Hello World - 5" x:Name="Lbl_HelloWorld"  Background="#FFA46C7D" DockPanel.Dock="Right" />
+        <Label Content="Hello World - 1" DockPanel.Dock="Left" 
+               Background="{Binding Background, ElementName=Lbl_HelloWorld, Mode=OneWay}" 
+               Visibility="{Binding Visibility, ElementName=Lbl_HelloWorld}" />
         <Label Content="Hello World - 2" Background="#FF76623F" DockPanel.Dock="Left" />
         <Label Content="Hello World - 3" Background="#FF00622B" DockPanel.Dock="Top" />
-        <Label Content="Hello World - 4" Background="#FF00772B" DockPanel.Dock="Bottom" />
+        <Grid DockPanel.Dock="Bottom">
+            <Button x:Name="Btn_Hear" Content="Hear" HorizontalAlignment="Left" Margin="20,72,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Hear_Click"/>
+            <TextBox x:Name="Txt_Num1" HorizontalAlignment="Left" Height="23" Margin="20,27,0,0" TextWrapping="Wrap" Text="{Binding  TwoNumberInfo.X, ElementName=Window_MainWindow, Mode=OneWay}" VerticalAlignment="Top" Width="77"/>
+            <TextBox x:Name="Txt_Num2" HorizontalAlignment="Left" Height="23" Margin="123,27,0,0" TextWrapping="Wrap" Text="{Binding TwoNumberInfo.Y, ElementName=Window_MainWindow, Mode=OneWay}" VerticalAlignment="Top" Width="77"/>
+            <DataGrid x:Name="DataGrid_TwoNumbers" AutoGenerateColumns="True" Margin="0,114,0,0" ItemsSource="{Binding TwoNumberInfoList, ElementName=Window_MainWindow}" >
+
+            </DataGrid>
+            <Button x:Name="Btn_Hear2" Content="Hear2" HorizontalAlignment="Left" Margin="125,72,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Hear2_Click"/>
+            <Label x:Name="Lbl_Operation" Content="{Binding TwoNumberInfo.Operation, ElementName=Window_MainWindow,Converter={ StaticResource OperationAndStringConverter}}" HorizontalAlignment="Left" Margin="97,27,0,0" VerticalAlignment="Top" Width="26" Height="23"/>
+        </Grid>
     </DockPanel>
 </Window>
